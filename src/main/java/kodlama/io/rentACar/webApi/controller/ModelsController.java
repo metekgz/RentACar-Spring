@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 
-
 @RestController
 @RequestMapping("api/models")
 @AllArgsConstructor
@@ -31,11 +30,11 @@ public class ModelsController {
         return modelService.getAll();
     }
 
-    
+
     @PostMapping()
     @ResponseStatus(code = HttpStatus.CREATED)
-    public void add(@RequestBody  @Valid() CreateModelRequest createModelRequest) {
+    public void add(@RequestBody @Valid() CreateModelRequest createModelRequest) {
         this.modelService.add(createModelRequest);
     }
-    
+
 }

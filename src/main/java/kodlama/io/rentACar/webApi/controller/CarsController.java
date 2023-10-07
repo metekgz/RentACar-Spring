@@ -2,9 +2,8 @@ package kodlama.io.rentACar.webApi.controller;
 
 import kodlama.io.rentACar.business.abstracts.CarService;
 import kodlama.io.rentACar.business.requests.CreateCarRequest;
-import kodlama.io.rentACar.business.requests.UpdateBrandRequest;
 import kodlama.io.rentACar.business.requests.UpdateCarRequest;
-import kodlama.io.rentACar.business.responses.GetAllBrandsResponse;
+import kodlama.io.rentACar.business.responses.GetAllCarByBrandId;
 import kodlama.io.rentACar.business.responses.GetAllCarResponse;
 import kodlama.io.rentACar.business.responses.GetByIdCarResponse;
 import lombok.AllArgsConstructor;
@@ -24,23 +23,31 @@ public class CarsController {
 
         return carService.getAll();
     }
+
     @GetMapping("/{id}")
-    public GetByIdCarResponse getById(@PathVariable int id){
+    public GetByIdCarResponse getById(@PathVariable int id) {
         return carService.getById(id);
     }
+
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
     public void add(@RequestBody CreateCarRequest request) {
         carService.add(request);
     }
-    @PutMapping(value="/{id}")
-    public void update( @RequestBody UpdateCarRequest updateCarRequest) {
+
+    @PutMapping(value = "/{id}")
+    public void update(@RequestBody UpdateCarRequest updateCarRequest) {
         carService.update(updateCarRequest);
     }
 
-    @DeleteMapping(value="/{id}")
+    @DeleteMapping(value = "/{id}")
     public void delete(@PathVariable int id) {
         carService.delete(id);
+    }
+
+    @GetMapping("brandId/{id}")
+    public List<GetAllCarByBrandId> getAllCarByBrandId(@PathVariable int id) {
+        return this.carService.getAllCarByBrandId(id);
     }
 
 }

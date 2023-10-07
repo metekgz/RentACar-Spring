@@ -32,6 +32,9 @@ public class Car {
     @Column(name = "state")
     private int state;
 
+    @Column(name = "carImg")
+    private  String carImg;
+
     //?
     @OneToMany(mappedBy = "car")
     private List<Maintenance> maintenanceList;
