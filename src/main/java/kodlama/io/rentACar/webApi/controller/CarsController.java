@@ -29,18 +29,18 @@ public class CarsController {
         return carService.getById(id);
     }
 
-    @PostMapping
+    @PostMapping("/add")
     @ResponseStatus(code = HttpStatus.CREATED)
     public void add(@RequestBody CreateCarRequest request) {
         carService.add(request);
     }
 
-    @PutMapping(value = "/{id}")
+    @PutMapping(value = "/update/{id}")
     public void update(@RequestBody UpdateCarRequest updateCarRequest) {
         carService.update(updateCarRequest);
     }
 
-    @DeleteMapping(value = "/{id}")
+    @DeleteMapping(value = "/delete/{id}")
     public void delete(@PathVariable int id) {
         carService.delete(id);
     }
