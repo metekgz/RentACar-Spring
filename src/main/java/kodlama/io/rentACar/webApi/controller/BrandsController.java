@@ -44,7 +44,7 @@ public class BrandsController {
         return brandService.getAll();
     }
 
-    @PostMapping()
+    @PostMapping("/add")
     @ResponseStatus(code = HttpStatus.CREATED)
     public void add(@RequestBody @Valid() CreateBrandRequest createBrandRequest) {
          brandService.add(createBrandRequest);

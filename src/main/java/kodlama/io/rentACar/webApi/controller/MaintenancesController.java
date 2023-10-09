@@ -28,13 +28,13 @@ public class MaintenancesController {
         return this.maintenanceService.getById(id);
     }
     
-    @PostMapping()
+    @PostMapping("/add")
     @ResponseStatus(code= HttpStatus.CREATED)
     public void add(@RequestBody CreateMaintenanceRequest createMaintenanceRequest){
         this.maintenanceService.add(createMaintenanceRequest);
     }
 
-    @PutMapping()
+    @PutMapping(value="/{id}")
     @ResponseStatus(code= HttpStatus.CREATED)
     public void update(@RequestBody UpdateMaintenanceRequest updateMaintenanceRequest){
         this.maintenanceService.update(updateMaintenanceRequest);
